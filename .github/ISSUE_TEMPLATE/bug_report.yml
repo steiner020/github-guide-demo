@@ -1,4 +1,4 @@
-name: 缺陷
+name: 缺陷报告
 description: 报告一个可复现的问题
 title: "[缺陷] "
 labels: ["bug"]
