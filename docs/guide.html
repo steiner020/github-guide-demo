@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>快速开始 · AI 需求分析助手</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="index.html">
+    <span class="mark">需</span>
+    <span><strong>需求分析助手</strong><small>AI Requirements Assistant</small></span>
+  </a>
+  <div class="top-actions">
+    <label class="search">
+      <span class="search-icon" aria-hidden="true">⌕</span>
+      <input id="doc-search" type="search" placeholder="搜索文档…" aria-label="搜索文档">
+    </label>
+    <a class="ghost" href="https://github.com/steiner020/github-guide-demo">GitHub</a>
+    <span class="version">v0.1.0</span>
+  </div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <nav id="doc-nav">
+      <p class="nav-label">开始</p>
+      <a href="index.html">概览</a>
+      <a class="active" href="guide.html#quickstart">快速开始</a>
+      <p class="nav-label">使用</p>
+      <a href="guide.html#import">导入会议纪要</a>
+      <a href="guide.html#stories">生成用户故事</a>
+      <a href="guide.html#acceptance">验收标准</a>
+      <p class="nav-label">参考</p>
+      <a href="guide.html#cli">命令行</a>
+      <a href="guide.html#prompt">提示词模板</a>
+      <a href="guide.html#release">发布记录</a>
+    </nav>
+    <div class="sidebar-note">
+      <strong>教学示例</strong>
+      <p>仓库中的需求、数据与角色均为虚构，用于演示 GitHub 协作流程。</p>
+    </div>
+  </aside>
+
+  <main class="content article">
+    <h1>快速开始</h1>
+    <p>从一段 Markdown 会议纪要开始，在本地或 Codespaces 中跑通完整流程。默认分支已包含示例数据，不需要模型账号。</p>
+
+    <section id="quickstart">
+      <h2>安装与运行</h2>
+      <pre><code>python -m venv .venv
+source .venv/bin/activate        # Windows: .venv\Scripts\activate
+pip install -r requirements-dev.txt
+
+python -m src.requirements_parser examples/meeting-notes.md</code></pre>
+      <p>如果只想看输出，可以直接打开 <code>examples/meeting-notes.md</code>，对照终端的结构化结果。</p>
+      <blockquote>没有本地环境时，在仓库页面选择 <strong>Code → Codespaces</strong>，等待容器启动后按同一组命令执行。</blockquote>
+    </section>
+
+    <section id="import">
+      <h2>导入会议纪要</h2>
+      <p>解析器识别二级标题作为故事边界，并把标题下的列表项收集为该故事的素材。支持 <code>-</code> 与 <code>*</code> 两种列表符号。</p>
+      <table>
+        <thead><tr><th>输入</th><th>行为</th></tr></thead>
+        <tbody>
+          <tr><td>二级标题</td><td>新建一条故事草稿</td></tr>
+          <tr><td>标题下的列表项</td><td>追加为故事素材</td></tr>
+          <tr><td>没有标题的正文</td><td>忽略，并提示补充结构</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="stories">
+      <h2>生成用户故事</h2>
+      <p>每条输出包含标题与素材列表。v0.1.0 不负责润色，它只做确定性拆分；生成措辞由提示词模板约束，避免把猜测写成事实。</p>
+      <pre><code>## 纪要导入
+
+- 支持粘贴 Markdown 与纯文本
+- 单次不超过 20 万字符</code></pre>
+    </section>
+
+    <section id="acceptance">
+      <h2>验收标准</h2>
+      <p>好的验收标准必须可观察、可测试。建议同时覆盖主路径和异常路径，例如“导入失败时保留原文”。</p>
+      <ul>
+        <li>每条标准都能在评审会上演示或测试。</li>
+        <li>避免“体验流畅”“性能良好”这类无法判定的描述。</li>
+        <li>缺少成功指标时，先列出待确认问题。</li>
+      </ul>
+    </section>
+
+    <section id="cli">
+      <h2>命令行</h2>
+      <pre><code># 从文件读取
+python -m src.requirements_parser examples/meeting-notes.md
+
+# 运行测试
+python -m pytest -q</code></pre>
+    </section>
+
+    <section id="prompt">
+      <h2>提示词模板</h2>
+      <p>提示词位于 <code>prompts/story-template.md</code>，要求模型只使用输入材料中的信息。CI 会做一次字段冒烟检查，防止模板误删关键段落。</p>
+    </section>
+
+    <section id="release">
+      <h2>发布记录</h2>
+      <p><strong>v0.1.0 · 迭代 1</strong>：纪要拆分、结构化输出、文档站与 CI。下一步计划加入验收标准生成与批量导出。</p>
+      <p><a href="https://github.com/steiner020/github-guide-demo/releases">在 GitHub 查看全部发布 →</a></p>
+    </section>
+
+    <footer>
+      <span>© 2026 AI 需求分析助手 · 教学示例</span>
+      <span><a href="https://github.com/steiner020/github-guide-demo/blob/main/LICENSE">MIT License</a> · 由 GitHub Pages 发布</span>
+    </footer>
+  </main>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

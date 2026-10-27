@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 需求分析助手 · 文档</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="index.html">
+    <span class="mark">需</span>
+    <span>
+      <strong>需求分析助手</strong>
+      <small>AI Requirements Assistant</small>
+    </span>
+  </a>
+  <div class="top-actions">
+    <label class="search">
+      <span class="search-icon" aria-hidden="true">⌕</span>
+      <input id="doc-search" type="search" placeholder="搜索文档…" aria-label="搜索文档">
+    </label>
+    <a class="ghost" href="https://github.com/steiner020/github-guide-demo">GitHub</a>
+    <span class="version">v0.1.0</span>
+  </div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <nav id="doc-nav">
+      <p class="nav-label">开始</p>
+      <a class="active" href="index.html">概览</a>
+      <a href="guide.html#quickstart">快速开始</a>
+      <p class="nav-label">使用</p>
+      <a href="guide.html#import">导入会议纪要</a>
+      <a href="guide.html#stories">生成用户故事</a>
+      <a href="guide.html#acceptance">验收标准</a>
+      <p class="nav-label">参考</p>
+      <a href="guide.html#cli">命令行</a>
+      <a href="guide.html#prompt">提示词模板</a>
+      <a href="guide.html#release">发布记录</a>
+    </nav>
+    <div class="sidebar-note">
+      <strong>教学示例</strong>
+      <p>仓库中的需求、数据与角色均为虚构，用于演示 GitHub 协作流程。</p>
+    </div>
+  </aside>
+
+  <main class="content">
+    <section class="hero">
+      <div class="eyebrow">ITERATION 1 · DOCS</div>
+      <h1>把会议纪要，<br>变成可执行的<em>需求</em>。</h1>
+      <p class="lede">粘贴一段纪要，得到结构化的用户故事、验收标准与优先级建议。每一段输出都能直接进入 Issue，而不是停在聊天记录里。</p>
+      <div class="cta">
+        <a class="button primary" href="guide.html#quickstart">快速开始 <span>→</span></a>
+        <a class="button quiet" href="https://github.com/steiner020/github-guide-demo">查看源码</a>
+      </div>
+      <div class="stats">
+        <div><strong>3 分钟</strong><span>从纪要到故事草稿</span></div>
+        <div><strong>0</strong><span>运行时第三方依赖</span></div>
+        <div><strong>v0.1.0</strong><span>迭代 1 已发布</span></div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="card" data-search="导入 纪要 markdown 纯文本">
+        <div class="card-icon">01</div>
+        <h2>先保留原文</h2>
+        <p>支持 Markdown 与纯文本粘贴。解析失败时原文不丢，方便对照与重试。</p>
+        <a href="guide.html#import">了解导入规则 →</a>
+      </article>
+      <article class="card" data-search="用户故事 验收标准 优先级">
+        <div class="card-icon">02</div>
+        <h2>只写可验证的事</h2>
+        <p>每条故事都带验收标准。材料里没有的数字与结论，不会替你编造。</p>
+        <a href="guide.html#stories">查看输出结构 →</a>
+      </article>
+      <article class="card" data-search="命令行 CLI python 示例">
+        <div class="card-icon">03</div>
+        <h2>一条命令跑通</h2>
+        <p>用仓库内的示例纪要体验完整流程，不需要 API Key 或模型账号。</p>
+        <a href="guide.html#cli">运行示例 →</a>
+      </article>
+    </section>
+
+    <section class="callout">
+      <div>
+        <span class="pill">正在迭代</span>
+        <h2>迭代 1：解析器与文档站</h2>
+        <p>当前版本覆盖 Markdown 纪要的结构化输出。验收标准生成与批量导出在 Issue #3、#4 中推进。</p>
+      </div>
+      <a class="button quiet" href="https://github.com/steiner020/github-guide-demo/issues">查看看板 →</a>
+    </section>
+
+    <section class="quick">
+      <div class="quick-head">
+        <h2>三行跑通</h2>
+        <span class="muted">Python 3.12+</span>
+      </div>
+      <pre><code>python -m venv .venv
+pip install -r requirements-dev.txt
+python -m src.requirements_parser examples/meeting-notes.md</code></pre>
+      <p class="muted">没有安装环境？在仓库页面选择 <strong>Code → Codespaces</strong>，云端直接打开。</p>
+    </section>
+
+    <footer>
+      <span>© 2026 AI 需求分析助手 · 教学示例</span>
+      <span><a href="https://github.com/steiner020/github-guide-demo/blob/main/LICENSE">MIT License</a> · 由 GitHub Pages 发布</span>
+    </footer>
+  </main>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
