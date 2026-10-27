@@ -1,6 +1,11 @@
 # AI 需求分析助手 · 教学示例
 
-> 这是《GitHub 协作实战》的配套演示仓库，用来展示从需求到发布的完整协作流程。仓库中的需求、代码与数据均为虚构，不对应任何真实客户。
+[![CI](https://github.com/steiner020/github-guide-demo/actions/workflows/ci.yml/badge.svg)](https://github.com/steiner020/github-guide-demo/actions/workflows/ci.yml)
+[![Deploy docs](https://github.com/steiner020/github-guide-demo/actions/workflows/pages.yml/badge.svg)](https://github.com/steiner020/github-guide-demo/actions/workflows/pages.yml)
+
+**在线文档站**：https://steiner020.github.io/github-guide-demo/ ｜ **最新版本**：[v0.1.0](https://github.com/steiner020/github-guide-demo/releases/tag/v0.1.0)
+
+这是《GitHub 协作实战》的配套演示仓库，用来展示从需求到发布的完整协作流程。仓库中的需求、代码与数据均为虚构，不对应任何真实客户。
 
 ## 项目要解决什么问题
 
@@ -11,11 +16,11 @@
 ## 迭代 1 的范围
 
 | 工作项 | 状态 | 负责人 |
-| --- | --- | --- |
-| 需求解析器 | 开发中 | @steiner020 |
+|---|---|---|
+| 需求解析器 | 已完成 | @steiner020 |
 | 用户故事模板 | 已完成 | @steiner020 |
 | 验收标准生成 | 待开始 | 待认领 |
-| 文档站 | 待开始 | 待认领 |
+| 文档站 | 已完成 | @steiner020 |
 
 ## 快速开始
 
@@ -30,11 +35,11 @@ Windows 用户把第二行换成 `.venv\Scripts\activate`。
 
 ## 目录结构
 
-```text
+```
 .
 ├── .github/
 │   ├── ISSUE_TEMPLATE/     # Issue 表单
-│   ├── workflows/          # CI 工作流
+│   ├── workflows/          # CI 与 Pages 工作流
 │   └── pull_request_template.md
 ├── docs/                   # 文档站
 ├── examples/               # 示例输入
@@ -45,16 +50,20 @@ Windows 用户把第二行换成 `.venv\Scripts\activate`。
 
 ## 协作方式
 
-1. 每个需求先开 Issue，并使用「需求」表单；没有 Issue 的改动不进入评审。
-2. 分支命名：`feature/<issue 编号>-<简短描述>`，例如 `feature/2-story-parser`。
-3. 提交信息遵循 Conventional Commits，例如 `feat(parser): 支持提取验收标准`。
-4. PR 必须关联 Issue，并通过 CI 检查后才能合并。
-5. 发布使用语义化版本，变更写入 Release Notes。
+每个需求先开 Issue，并使用「需求」表单；没有 Issue 的改动不进入评审。
+
+分支命名：`feature/<issue 编号>-<简短描述>`，例如 `feature/2-story-parser`。
+
+提交信息遵循 Conventional Commits，例如 `feat(parser): 支持提取验收标准`。
+
+PR 必须关联 Issue，并通过 CI 检查后才能合并。
+
+发布使用语义化版本，变更写入 Release Notes。
 
 ## 角色
 
 | 角色 | 负责人 | 关注点 |
-| --- | --- | --- |
+|---|---|---|
 | 项目经理 | 林澈 | 范围、排期、验收 |
 | 算法工程师 | 阿岚 | 解析质量、评测集 |
 | 前端工程师 | 小周 | 文档站与演示页 |
@@ -62,4 +71,4 @@ Windows 用户把第二行换成 `.venv\Scripts\activate`。
 
 ## 许可证
 
-本项目使用 [MIT License](LICENSE)。示例数据均为虚构。
+本项目使用 MIT License。示例数据均为虚构。
